@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    {% block links %}
+
+    {% endblock %}
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="{% url 'Home'%}" class="d-flex align-items-center text-dark text-decoration-none fw-bold" style="margin-right:auto;">
+                <span class="fs-4 fw-bold">Blog</span>
+            </a>
+            <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{% url 'Home'%}" class="nav-link active">Home</a></li>
+            <li class="nav-item"><a href="/admin/" class="nav-link">Admin-panel</a></li>
+            <li class="nav-item"><a href="{% url 'Article:Home'%}" class="nav-link">Articles</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="container">
+        {% block content%}
+
+        {% endblock %}
+    </div>
+    <script src="{% static 'js/jquery.js'%}"></script>
+    <script src="{% static 'js/control.js'%}"></script>
+</body>
+</html>
